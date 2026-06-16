@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- ═══════════════════════════════════════
+     SEO & META
+═══════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LeadFlow automatiza todo o atendimento comercial da sua empresa com Inteligência Artificial. Atenda clientes 24h, qualifique leads e agende reuniões automaticamente.">
+<meta name="keywords" content="automação atendimento, inteligência artificial, chatbot whatsapp, qualificação leads, agendamento automático, LeadFlow">
+<meta name="author" content="LeadFlow">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph / WhatsApp / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seuusuario.github.io/leadflow-site/">
+<meta property="og:title" content="LeadFlow — Atendimento Inteligente 24h com IA">
+<meta property="og:description" content="Automatize seu atendimento comercial com IA. Responda clientes, qualifique leads e agende reuniões 24 horas por dia, sem contratar funcionários.">
+<meta property="og:image" content="https://seuusuario.github.io/leadflow-site/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LeadFlow — Atendimento Inteligente 24h com IA">
+<meta name="twitter:description" content="Automatize seu atendimento comercial com IA. Responda clientes, qualifique leads e agende reuniões 24h.">
+
+<title>LeadFlow — Atendimento Inteligente 24h com IA</title>
+<link rel="canonical" href="https://seuusuario.github.io/leadflow-site/">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LeadFlow",
+  "description": "Automação de atendimento comercial com Inteligência Artificial",
+  "url": "https://seuusuario.github.io/leadflow-site/",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+55-48-98808-8068",
+    "contactType": "sales",
+    "availableLanguage": "Portuguese"
+  }
+}
+</script>
+
+<style>
+/* ════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════ */
+:root {
+  --bg:         #0F172A;
+  --bg2:        #111827;
+  --blue:       #2563EB;
+  --blue-light: #3B82F6;
+  --green:      #10B981;
+  --white:      #FFFFFF;
+  --gray:       #94A3B8;
+  --border:     rgba(255,255,255,0.08);
+  --card-bg:    rgba(255,255,255,0.04);
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+html { scroll-behavior:smooth }
+body { background:var(--bg); color:var(--white); font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; overflow-x:hidden }
+h1,h2,h3,h4 { font-family:'Poppins',sans-serif }
+a { text-decoration:none; color:inherit }
+img { max-width:100%; display:block }
+
+/* subtle noise texture */
+body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0 }
+
+/* ════════════════════════════════
+   NAV
+════════════════════════════════ */
+nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:1.1rem 6%; border-bottom:1px solid var(--border); background:rgba(15,23,42,0.88); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px) }
+.nav-logo { font-family:'Poppins',sans-serif; font-weight:700; font-size:1.35rem; letter-spacing:-0.5px; display:flex; align-items:center; gap:.5rem }
+.logo-dot { width:8px; height:8px; border-radius:50%; background:var(--green); display:inline-block; animation:pulse-dot 2s infinite }
+@keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
+.nav-links { display:flex; gap:2rem; list-style:none; font-size:.875rem; font-weight:500 }
+.nav-links a { color:var(--gray); transition:color .2s }
+.nav-links a:hover { color:var(--white) }
+.nav-cta { background:var(--blue); color:var(--white); padding:.55rem 1.3rem; border-radius:8px; font-size:.875rem; font-weight:600; transition:background .2s,transform .15s; cursor:pointer; border:none; font-family:'Poppins',sans-serif }
+.nav-cta:hover { background:var(--blue-light); transform:translateY(-1px) }
+
+/* ════════════════════════════════
+   SHARED SECTION STYLES
+════════════════════════════════ */
+section { position:relative; z-index:1 }
+.section-eyebrow { font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--blue-light); margin-bottom:1rem }
+.section-title { font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:700; letter-spacing:-.8px; line-height:1.2; margin-bottom:1rem }
+.section-sub { color:var(--gray); max-width:560px; font-size:1.05rem }
+.section-header { text-align:center; margin-bottom:3.5rem }
+.section-header .section-sub { margin:0 auto }
+
+/* ════════════════════════════════
+   HERO
+════════════════════════════════ */
+#hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:8rem 6% 6rem; overflow:hidden }
+.hero-glow { position:absolute; top:-120px; left:50%; transform:translateX(-50%); width:900px; height:600px; background:radial-gradient(ellipse at center,rgba(37,99,235,.25) 0%,transparent 70%); pointer-events:none }
+.hero-badge { display:inline-flex; align-items:center; gap:.5rem; background:rgba(37,99,235,.15); border:1px solid rgba(37,99,235,.35); border-radius:100px; padding:.35rem 1rem; font-size:.78rem; font-weight:600; color:var(--blue-light); letter-spacing:.04em; text-transform:uppercase; margin-bottom:1.75rem; animation:fadeUp .6s ease both }
+.hero-badge .dot { color:var(--green) }
+h1 { font-size:clamp(2.4rem,5.5vw,4rem); font-weight:800; line-height:1.15; letter-spacing:-1.5px; max-width:820px; margin:0 auto 1.5rem; animation:fadeUp .7s .1s ease both }
+h1 .hl { color:var(--blue-light) }
+.hero-sub { font-size:clamp(1rem,2vw,1.2rem); color:var(--gray); max-width:600px; margin:0 auto 2.5rem; animation:fadeUp .7s .2s ease both }
+
+.btn-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:4rem; animation:fadeUp .7s .3s ease both }
+.btn-primary { background:var(--blue); color:var(--white); padding:.85rem 2rem; border-radius:10px; font-weight:700; font-size:1rem; font-family:'Poppins',sans-serif; border:none; cursor:pointer; transition:all .2s; box-shadow:0 0 28px rgba(37,99,235,.4); display:inline-flex; align-items:center; gap:.5rem }
+.btn-primary:hover { background:var(--blue-light); transform:translateY(-2px); box-shadow:0 0 40px rgba(37,99,235,.55) }
+.btn-secondary { background:transparent; color:var(--white); padding:.85rem 2rem; border-radius:10px; font-weight:600; font-size:1rem; font-family:'Poppins',sans-serif; border:1px solid var(--border); cursor:pointer; transition:all .2s; display:inline-flex; align-items:center; gap:.5rem }
+.btn-secondary:hover { border-color:rgba(255,255,255,.25); background:rgba(255,255,255,.05); transform:translateY(-2px) }
+
+.hero-flow { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; animation:fadeUp .8s .4s ease both; max-width:820px; margin:0 auto }
+.flow-step { display:flex; flex-direction:column; align-items:center; gap:.5rem; padding:.9rem 1.1rem; background:var(--card-bg); border:1px solid var(--border); border-radius:14px; min-width:100px; transition:transform .2s,border-color .2s }
+.flow-step:hover { transform:translateY(-4px); border-color:rgba(37,99,235,.4) }
+.flow-icon { font-size:1.7rem; line-height:1 }
+.flow-label { font-size:.72rem; font-weight:600; color:var(--gray); text-align:center; text-transform:uppercase; letter-spacing:.04em }
+.flow-arrow { color:var(--blue-light); font-size:1.1rem; padding:0 .25rem; opacity:.5 }
+
+.stats-bar { display:flex; gap:2.5rem; justify-content:center; flex-wrap:wrap; margin:5rem auto 0; padding:2rem 1.5rem; background:var(--card-bg); border:1px solid var(--border); border-radius:18px; max-width:900px; animation:fadeUp .8s .5s ease both }
+.stat-item { text-align:center }
+.stat-num { font-family:'Poppins',sans-serif; font-size:2rem; font-weight:800; letter-spacing:-1px }
+.stat-num .accent { color:var(--green) }
+.stat-label { font-size:.8rem; color:var(--gray); margin-top:.2rem }
+
+/* ════════════════════════════════
+   PROBLEMA
+════════════════════════════════ */
+#problema { padding:7rem 6%; background:linear-gradient(180deg,var(--bg) 0%,#0a1120 100%) }
+.problems-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem; max-width:1100px; margin:0 auto }
+.problem-card { background:rgba(239,68,68,.05); border:1px solid rgba(239,68,68,.18); border-radius:14px; padding:1.5rem; display:flex; align-items:flex-start; gap:1rem; transition:transform .2s,border-color .2s }
+.problem-card:hover { transform:translateY(-3px); border-color:rgba(239,68,68,.35) }
+.problem-icon { font-size:1.4rem; flex-shrink:0; margin-top:2px }
+.problem-card h4 { font-size:1rem; font-weight:600; margin-bottom:.3rem }
+.problem-card p { font-size:.85rem; color:var(--gray) }
+
+/* ════════════════════════════════
+   SOLUÇÃO
+════════════════════════════════ */
+#solucao { padding:7rem 6% }
+.flow-vertical { max-width:680px; margin:0 auto; display:flex; flex-direction:column; align-items:center }
+.fv-step { display:flex; align-items:center; gap:1.5rem; width:100%; padding:1.25rem 1.5rem; background:var(--card-bg); border:1px solid var(--border); border-radius:14px; transition:transform .2s,border-color .2s }
+.fv-step:hover { transform:translateX(5px); border-color:rgba(37,99,235,.35) }
+.fv-num { width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg,var(--blue),var(--blue-light)); display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:.9rem; flex-shrink:0 }
+.fv-step p { font-size:.95rem; font-weight:500 }
+.fv-arrow { padding:.4rem 0; color:var(--blue-light); opacity:.4; font-size:1.3rem; align-self:center }
+
+/* ════════════════════════════════
+   BENEFÍCIOS
+════════════════════════════════ */
+#beneficios { padding:7rem 6%; background:linear-gradient(180deg,var(--bg) 0%,#0a1120 100%) }
+.benefits-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.25rem; max-width:1100px; margin:0 auto }
+.benefit-card { background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:1.5rem 1.4rem; transition:transform .2s,border-color .2s }
+.benefit-card:hover { transform:translateY(-4px); border-color:rgba(16,185,129,.3) }
+.benefit-icon { width:44px; height:44px; border-radius:12px; background:rgba(16,185,129,.12); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem }
+.benefit-card h4 { font-size:.97rem; font-weight:600; margin-bottom:.4rem }
+.benefit-card p { font-size:.82rem; color:var(--gray) }
+
+/* ════════════════════════════════
+   SEGMENTOS
+════════════════════════════════ */
+#segmentos { padding:7rem 6% }
+.segments-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:1rem; max-width:1000px; margin:0 auto }
+.segment-card { background:var(--card-bg); border:1px solid var(--border); border-radius:14px; padding:1.3rem 1rem; text-align:center; transition:all .2s }
+.segment-card:hover { border-color:rgba(37,99,235,.4); background:rgba(37,99,235,.08); transform:translateY(-3px) }
+.segment-emoji { font-size:1.8rem; display:block; margin-bottom:.5rem }
+.segment-name { font-size:.85rem; font-weight:600; color:var(--gray) }
+
+/* ════════════════════════════════
+   DEMO
+════════════════════════════════ */
+#demo { padding:7rem 6%; background:linear-gradient(180deg,var(--bg) 0%,#0a1120 100%) }
+.demo-wrapper { max-width:900px; margin:0 auto; border-radius:20px; border:1px solid var(--border); overflow:hidden; background:#0a1120; box-shadow:0 40px 100px rgba(0,0,0,.5) }
+.demo-bar { background:rgba(255,255,255,.04); padding:.85rem 1.25rem; display:flex; align-items:center; gap:.6rem; border-bottom:1px solid var(--border) }
+.demo-dot { width:12px; height:12px; border-radius:50% }
+.demo-area { min-height:380px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1.2rem; padding:3rem; color:var(--gray); text-align:center }
+.demo-play { width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--blue-light)); display:flex; align-items:center; justify-content:center; font-size:1.7rem; cursor:pointer; transition:transform .2s,box-shadow .2s; box-shadow:0 0 30px rgba(37,99,235,.4) }
+.demo-play:hover { transform:scale(1.08); box-shadow:0 0 50px rgba(37,99,235,.6) }
+
+/* ════════════════════════════════
+   CTA / FORMULÁRIO
+════════════════════════════════ */
+#cta { padding:7rem 6% }
+.cta-wrapper { max-width:720px; margin:0 auto; background:linear-gradient(135deg,rgba(37,99,235,.12),rgba(16,185,129,.08)); border:1px solid rgba(37,99,235,.25); border-radius:24px; padding:3.5rem 3rem; text-align:center }
+
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem; text-align:left }
+.form-full { grid-column:1/-1 }
+label { display:block; font-size:.8rem; font-weight:600; color:var(--gray); margin-bottom:.4rem; letter-spacing:.02em }
+input, select, textarea { width:100%; background:rgba(255,255,255,.05); border:1px solid var(--border); border-radius:10px; padding:.75rem 1rem; color:var(--white); font-size:.9rem; font-family:'Inter',sans-serif; transition:border-color .2s,box-shadow .2s; outline:none; -webkit-appearance:none }
+input:focus, select:focus, textarea:focus { border-color:var(--blue-light); box-shadow:0 0 0 3px rgba(59,130,246,.15) }
+select option { background:var(--bg2) }
+textarea { resize:vertical; min-height:90px }
+.btn-form { width:100%; margin-top:1.25rem; background:var(--green); color:var(--white); padding:1rem 2rem; border-radius:12px; font-weight:700; font-size:1.05rem; font-family:'Poppins',sans-serif; border:none; cursor:pointer; transition:all .2s; box-shadow:0 0 28px rgba(16,185,129,.35) }
+.btn-form:hover { background:#0ea272; transform:translateY(-2px); box-shadow:0 0 44px rgba(16,185,129,.5) }
+.btn-form:disabled { opacity:.6; cursor:not-allowed; transform:none }
+.form-note { font-size:.78rem; color:var(--gray); margin-top:.9rem }
+
+/* inline success */
+.form-success-inline { display:none; text-align:center; padding:2rem 1rem }
+.form-success-inline .suc-icon { font-size:3rem; margin-bottom:1rem }
+.form-success-inline h3 { font-size:1.4rem; font-weight:700; margin-bottom:.5rem }
+.form-success-inline p { color:var(--gray); font-size:.95rem; max-width:400px; margin:0 auto 1.5rem }
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+footer { padding:3rem 6%; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; position:relative; z-index:1 }
+.footer-brand p { font-size:.8rem; color:var(--gray); margin-top:.35rem }
+.footer-links { display:flex; gap:1.5rem; list-style:none; font-size:.85rem }
+.footer-links a { color:var(--gray); transition:color .2s }
+.footer-links a:hover { color:var(--white) }
+.footer-copy { font-size:.78rem; color:rgba(148,163,184,.5) }
+
+/* ════════════════════════════════
+   MODAL DE AGENDAMENTO
+════════════════════════════════ */
+.modal-overlay { position:fixed; inset:0; z-index:500; display:none; align-items:center; justify-content:center; padding:1rem; background:rgba(0,0,0,.75); backdrop-filter:blur(8px) }
+.modal-overlay.open { display:flex }
+.modal-box { background:#111827; border:1px solid rgba(255,255,255,.1); border-radius:24px; width:100%; max-width:640px; max-height:92vh; overflow-y:auto; position:relative; animation:modalIn .3s ease }
+@keyframes modalIn { from{opacity:0;transform:scale(.95) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+.modal-box::-webkit-scrollbar { width:4px }
+.modal-box::-webkit-scrollbar-thumb { background:rgba(255,255,255,.1); border-radius:4px }
+
+.modal-header { padding:1.75rem 2rem 0; display:flex; align-items:flex-start; justify-content:space-between; gap:1rem }
+.modal-close { background:rgba(255,255,255,.07); border:none; color:var(--gray); width:36px; height:36px; border-radius:50%; font-size:1.1rem; cursor:pointer; transition:all .2s; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
+.modal-close:hover { background:rgba(255,255,255,.14); color:var(--white) }
+.modal-body { padding:1.5rem 2rem 2.5rem }
+
+.modal-eyebrow { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue-light); margin-bottom:.3rem }
+.modal-title { font-size:1.25rem; font-weight:700; font-family:'Poppins',sans-serif }
+
+/* Modal form fields */
+.mform-group { margin-bottom:1.1rem }
+.mform-group label { font-size:.8rem; font-weight:600; color:var(--gray); display:block; margin-bottom:.4rem }
+.mform-group input, .mform-group select, .mform-group textarea { width:100%; background:rgba(255,255,255,.05); border:1px solid var(--border); border-radius:10px; padding:.75rem 1rem; color:var(--white); font-size:.9rem; font-family:'Inter',sans-serif; outline:none; transition:border-color .2s,box-shadow .2s; -webkit-appearance:none }
+.mform-group input:focus, .mform-group select:focus, .mform-group textarea:focus { border-color:var(--blue-light); box-shadow:0 0 0 3px rgba(59,130,246,.15) }
+.mform-group select option { background:#111827 }
+.mform-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem }
+.mform-full { grid-column:1/-1 }
+.mfield-err { font-size:.75rem; color:#ef4444; margin-top:.3rem; display:none }
+.mfield-err.show { display:block }
+input.merr, select.merr, textarea.merr { border-color:#ef4444 }
+
+.btn-modal-submit { width:100%; margin-top:1.25rem; background:var(--green); color:var(--white); padding:.95rem 2rem; border-radius:12px; font-weight:700; font-size:1rem; font-family:'Poppins',sans-serif; border:none; cursor:pointer; transition:all .2s; box-shadow:0 0 24px rgba(16,185,129,.3) }
+.btn-modal-submit:hover { background:#0ea272; transform:translateY(-1px) }
+.btn-modal-submit:disabled { opacity:.5; cursor:not-allowed; transform:none }
+.modal-form-note { font-size:.75rem; color:var(--gray); margin-top:.75rem; text-align:center }
+
+/* Modal success state */
+.modal-success { display:none; text-align:center; padding:1rem 0 .5rem }
+.modal-success.show { display:block; animation:fadeUp .4s ease }
+.suc-circle { width:80px; height:80px; border-radius:50%; background:rgba(16,185,129,.12); border:2px solid rgba(16,185,129,.4); display:flex; align-items:center; justify-content:center; font-size:2.2rem; margin:0 auto 1.25rem; animation:popIn .4s .1s ease both }
+@keyframes popIn { from{opacity:0;transform:scale(.5)} to{opacity:1;transform:scale(1)} }
+.modal-success h3 { font-size:1.5rem; font-weight:700; margin-bottom:.6rem }
+.modal-success p { color:var(--gray); font-size:.93rem; max-width:380px; margin:0 auto 1.5rem; line-height:1.6 }
+.suc-wa-btn { display:inline-flex; align-items:center; gap:.6rem; background:#25D366; color:#fff; padding:.8rem 1.6rem; border-radius:10px; font-weight:700; font-size:.95rem; transition:all .2s }
+.suc-wa-btn:hover { background:#1ebe5b; transform:translateY(-1px) }
+
+/* ════════════════════════════════
+   ANIMATIONS
+════════════════════════════════ */
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .6s ease,transform .6s ease }
+.reveal.visible { opacity:1; transform:translateY(0) }
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media(max-width:768px) {
+  .nav-links { display:none }
+  h1 { font-size:2.2rem; letter-spacing:-1px }
+  .flow-arrow { display:none }
+  .hero-flow { gap:.5rem }
+  .flow-step { min-width:80px; padding:.75rem }
+  .form-grid, .mform-grid { grid-template-columns:1fr }
+  .cta-wrapper { padding:2rem 1.25rem }
+  footer { flex-direction:column; text-align:center }
+  .stats-bar { gap:1.5rem }
+  .modal-body { padding:1.25rem 1.25rem 2rem }
+  .modal-header { padding:1.25rem 1.25rem 0 }
+  .fv-step { flex-direction:column; align-items:flex-start }
+}
+@media(prefers-reduced-motion:reduce) { *, *::before, *::after { animation:none!important; transition:none!important } }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo"><span class="logo-dot"></span>LeadFlow</div>
+  <ul class="nav-links">
+    <li><a href="#problema">Problema</a></li>
+    <li><a href="#beneficios">Benefícios</a></li>
+    <li><a href="#segmentos">Segmentos</a></li>
+    <li><a href="#cta">Contato</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openModal()">Agendar Demo</button>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-glow"></div>
+
+  <div class="hero-badge"><span class="dot">●</span> IA Comercial — Disponível agora</div>
+
+  <h1>Seu atendimento trabalhando <span class="hl">24 horas por dia</span> sem contratar funcionários.</h1>
+
+  <p class="hero-sub">A LeadFlow automatiza todo o processo comercial da sua empresa — responde clientes, qualifica oportunidades e agenda reuniões automaticamente.</p>
+
+  <div class="btn-group">
+    <button class="btn-primary" onclick="openModal()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Agendar Demonstração Gratuita
+    </button>
+    <a href="https://wa.me/5548988088068?text=Ol%C3%A1%21%20Tenho%20interesse%20nas%20solu%C3%A7%C3%B5es%20de%20automa%C3%A7%C3%A3o%20da%20LeadFlow." class="btn-secondary" target="_blank" rel="noopener noreferrer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar no WhatsApp
+    </a>
+  </div>
+
+  <div class="hero-flow">
+    <div class="flow-step"><div class="flow-icon">💬</div><div class="flow-label">WhatsApp</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="flow-icon">🤖</div><div class="flow-label">IA Responde</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="flow-icon">🎯</div><div class="flow-label">Qualificação</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="flow-icon">📅</div><div class="flow-label">Agendamento</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="flow-icon">💰</div><div class="flow-label">Venda</div></div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num"><span class="accent">24</span>h</div><div class="stat-label">Atendimento contínuo</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="accent">3</span>x</div><div class="stat-label">Mais agendamentos</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="accent">-60</span>%</div><div class="stat-label">Custo operacional</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="accent">&lt;5</span>s</div><div class="stat-label">Tempo de resposta</div></div>
+  </div>
+</section>
+
+<!-- ══ PROBLEMA ══ -->
+<section id="problema">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">O problema real</div>
+    <h2 class="section-title">Quanto sua empresa perde por não responder rápido?</h2>
+    <p class="section-sub">Leads ignorados viram clientes da concorrência. Veja o que destrói seu faturamento silenciosamente.</p>
+  </div>
+  <div class="problems-grid">
+    <div class="problem-card reveal"><div class="problem-icon">❌</div><div><h4>Leads sem resposta</h4><p>70% dos leads que não recebem resposta em 5 minutos fecham com a concorrência.</p></div></div>
+    <div class="problem-card reveal"><div class="problem-icon">🐢</div><div><h4>Atendimento lento</h4><p>Clientes esperam horas por uma resposta enquanto a concorrência age em segundos.</p></div></div>
+    <div class="problem-card reveal"><div class="problem-icon">😓</div><div><h4>Equipe sobrecarregada</h4><p>Sua equipe perde tempo respondendo sempre as mesmas perguntas, sem focar em vendas.</p></div></div>
+    <div class="problem-card reveal"><div class="problem-icon">💸</div><div><h4>Perda de vendas</h4><p>Oportunidades quentes esfriam porque ninguém estava disponível no momento certo.</p></div></div>
+    <div class="problem-card reveal"><div class="problem-icon">🔁</div><div><h4>Sem follow-up</h4><p>Leads que não respondem de imediato são esquecidos, desperdiçando o investimento em marketing.</p></div></div>
+    <div class="problem-card reveal"><div class="problem-icon">🌙</div><div><h4>Horário limitado</h4><p>Clientes chegam fora do horário e não são atendidos, perdendo o momento de maior interesse.</p></div></div>
+  </div>
+</section>
+
+<!-- ══ SOLUÇÃO ══ -->
+<section id="solucao">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Nossa solução</div>
+    <h2 class="section-title">Como a LeadFlow transforma seu atendimento</h2>
+    <p class="section-sub">Um processo automatizado e inteligente que trabalha enquanto você dorme.</p>
+  </div>
+  <div class="flow-vertical">
+    <div class="fv-step reveal"><div class="fv-num">1</div><p>🔔 &nbsp;Cliente entra em contato pelo WhatsApp, site ou e-mail</p></div>
+    <div class="fv-arrow reveal">↓</div>
+    <div class="fv-step reveal"><div class="fv-num">2</div><p>⚡ &nbsp;IA responde instantaneamente — em menos de 5 segundos</p></div>
+    <div class="fv-arrow reveal">↓</div>
+    <div class="fv-step reveal"><div class="fv-num">3</div><p>🏢 &nbsp;Apresenta seus serviços, preços e condições automaticamente</p></div>
+    <div class="fv-arrow reveal">↓</div>
+    <div class="fv-step reveal"><div class="fv-num">4</div><p>🎯 &nbsp;Faz perguntas estratégicas para qualificar o interesse real do lead</p></div>
+    <div class="fv-arrow reveal">↓</div>
+    <div class="fv-step reveal"><div class="fv-num">5</div><p>📅 &nbsp;Agenda reunião diretamente no Google Agenda do seu time</p></div>
+    <div class="fv-arrow reveal">↓</div>
+    <div class="fv-step reveal"><div class="fv-num">6</div><p>📧 &nbsp;Envia confirmação automática por e-mail com todos os detalhes</p></div>
+    <div class="fv-arrow reveal">↓</div>
+    <div class="fv-step reveal"><div class="fv-num">7</div><p>✅ &nbsp;Sua equipe recebe a oportunidade qualificada, pronta para fechar</p></div>
+  </div>
+</section>
+
+<!-- ══ BENEFÍCIOS ══ -->
+<section id="beneficios">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">O que você ganha</div>
+    <h2 class="section-title">Resultados reais para o seu negócio</h2>
+    <p class="section-sub">Cada funcionalidade foi pensada para aumentar seu faturamento e reduzir custos operacionais.</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card reveal"><div class="benefit-icon">🕐</div><h4>Atendimento 24 horas</h4><p>Nunca perca um lead por horário. Sua IA atende aos domingos, feriados e madrugadas.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">📈</div><h4>Mais agendamentos</h4><p>Até 3x mais reuniões marcadas sem esforço adicional da sua equipe comercial.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">💰</div><h4>Menos custos operacionais</h4><p>Reduza em até 60% o custo com atendentes dedicados a tarefas repetitivas.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">⚡</div><h4>Resposta instantânea</h4><p>Resposta garantida em menos de 5 segundos, capturando o lead no momento quente.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">📅</div><h4>Integração Google Agenda</h4><p>Reuniões agendadas diretamente no calendário certo, sem conflitos ou erros.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">💬</div><h4>Integração WhatsApp</h4><p>Automatize o canal mais usado do Brasil sem mudar a experiência do cliente.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">📧</div><h4>E-mails automáticos</h4><p>Confirmações, follow-ups e lembretes enviados automaticamente no momento certo.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">🎯</div><h4>Qualificação automática</h4><p>Sua equipe fala apenas com quem tem interesse real e está pronto para comprar.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">🗂️</div><h4>Dados organizados</h4><p>Histórico completo de cada lead centralizado, acessível e pronto para análise.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">🚀</div><h4>Mais vendas</h4><p>Mais leads qualificados + menos tempo de resposta = crescimento direto no faturamento.</p></div>
+  </div>
+</section>
+
+<!-- ══ SEGMENTOS ══ -->
+<section id="segmentos">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Quem usa</div>
+    <h2 class="section-title">Perfeito para qualquer empresa que recebe clientes</h2>
+    <p class="section-sub">Se você recebe leads, a LeadFlow multiplica seus resultados.</p>
+  </div>
+  <div class="segments-grid">
+    <div class="segment-card reveal"><span class="segment-emoji">🏥</span><span class="segment-name">Clínicas</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">👨‍⚕️</span><span class="segment-name">Consultórios</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">⚖️</span><span class="segment-name">Advogados</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">🏠</span><span class="segment-name">Imobiliárias</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">📊</span><span class="segment-name">Corretoras</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">🏋️</span><span class="segment-name">Academias</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">💆</span><span class="segment-name">Estéticas</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">☀️</span><span class="segment-name">Energia Solar</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">📱</span><span class="segment-name">Agências</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">🏢</span><span class="segment-name">Empresas B2B</span></div>
+    <div class="segment-card reveal"><span class="segment-emoji">🔧</span><span class="segment-name">Prestadores</span></div>
+  </div>
+</section>
+
+<!-- ══ DEMO ══ -->
+<section id="demo">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Veja em ação</div>
+    <h2 class="section-title">Veja a automação funcionando</h2>
+    <p class="section-sub">Em menos de 2 minutos você entende como a LeadFlow pode transformar seu atendimento.</p>
+  </div>
+  <div class="demo-wrapper reveal">
+    <div class="demo-bar">
+      <div class="demo-dot" style="background:#ef4444"></div>
+      <div class="demo-dot" style="background:#f59e0b"></div>
+      <div class="demo-dot" style="background:#10b981"></div>
+      <span style="font-size:.75rem;color:var(--gray);margin-left:.5rem">LeadFlow — Demonstração ao vivo</span>
+    </div>
+    <div class="demo-area">
+      <div class="demo-play" onclick="this.textContent='⏸'">▶</div>
+      <p style="font-size:.9rem">Clique para assistir à demonstração completa</p>
+      <p style="font-size:.78rem;opacity:.5">2 min · Sem cadastro necessário</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA / FORMULÁRIO ESTÁTICO ══ -->
+<section id="cta">
+  <div class="cta-wrapper reveal">
+    <div class="section-eyebrow">Comece hoje</div>
+    <h2 class="section-title">Pronto para automatizar<br>seu atendimento?</h2>
+    <p class="section-sub" style="margin:0 auto">Solicite uma demonstração gratuita e descubra como aumentar suas vendas com IA.</p>
+
+    <!-- FORMULÁRIO via Formspree (substitua YOUR_FORM_ID pelo ID real) -->
+    <form id="ctaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+      <!-- Campos ocultos para Formspree -->
+      <input type="hidden" name="_subject" value="Novo Lead LeadFlow — Demonstração">
+      <input type="hidden" name="_next" value="https://seuusuario.github.io/leadflow-site/obrigado.html">
+      <input type="hidden" name="_language" value="pt">
+
+      <div class="form-grid">
+        <div>
+          <label for="nome">Nome completo *</label>
+          <input type="text" id="nome" name="nome" placeholder="João Silva" required>
+        </div>
+        <div>
+          <label for="empresa">Empresa *</label>
+          <input type="text" id="empresa" name="empresa" placeholder="Sua empresa" required>
+        </div>
+        <div>
+          <label for="whatsapp">WhatsApp *</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="(48) 9 8808-8068" required>
+        </div>
+        <div>
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" placeholder="voce@empresa.com" required>
+        </div>
+        <div class="form-full">
+          <label for="segmento">Segmento da empresa *</label>
+          <select id="segmento" name="segmento" required>
+            <option value="" disabled selected>Selecione seu segmento</option>
+            <option>Clínica / Consultório</option>
+            <option>Advocacia</option>
+            <option>Imobiliária / Corretora</option>
+            <option>Academia / Estética</option>
+            <option>Energia Solar</option>
+            <option>Agência de Marketing</option>
+            <option>Empresa B2B</option>
+            <option>Prestador de Serviço</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-full">
+          <label for="dor">Qual sua maior dor no atendimento? *</label>
+          <select id="dor" name="dor_atendimento" required>
+            <option value="" disabled selected>Selecione a principal dificuldade</option>
+            <option>Demora para responder leads</option>
+            <option>Perco clientes por falta de acompanhamento</option>
+            <option>Muitos atendimentos repetitivos</option>
+            <option>Equipe sobrecarregada</option>
+            <option>Poucos agendamentos</option>
+            <option>Baixa conversão de leads</option>
+            <option>Atendimento fora do horário comercial</option>
+            <option>Outro</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-form" id="ctaSubmitBtn">
+        Quero Automatizar Meu Atendimento →
+      </button>
+      <p class="form-note">🔒 Seus dados estão seguros. Sem spam. Demonstração 100% gratuita.</p>
+    </form>
+
+    <!-- Mensagem de sucesso inline (para quem não quer Formspree) -->
+    <div class="form-success-inline" id="formSuccessInline">
+      <div class="suc-icon">🎉</div>
+      <h3>Recebemos seu contato!</h3>
+      <p>Em breve nossa equipe entrará em contato pelo WhatsApp ou e-mail informado.</p>
+      <a href="https://wa.me/5548988088068?text=Ol%C3%A1%21%20Tenho%20interesse%20nas%20solu%C3%A7%C3%B5es%20de%20automa%C3%A7%C3%A3o%20da%20LeadFlow." class="suc-wa-btn" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-brand">
+    <div class="nav-logo"><span class="logo-dot"></span> LeadFlow</div>
+    <p>Automação Inteligente para Empresas.</p>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#solucao">Solução</a></li>
+    <li><a href="#beneficios">Benefícios</a></li>
+    <li><a href="https://wa.me/5548988088068?text=Ol%C3%A1%21%20Tenho%20interesse%20nas%20solu%C3%A7%C3%B5es%20de%20automa%C3%A7%C3%A3o%20da%20LeadFlow." target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+    <li><a href="https://instagram.com/leadflow" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    <li><a href="https://linkedin.com/company/leadflow" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 LeadFlow. Todos os direitos reservados.</div>
+</footer>
+
+<!-- ══════════════════════════════
+     MODAL — AGENDAR DEMONSTRAÇÃO
+══════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="overlayClose(event)">
+  <div class="modal-box" id="modalBox">
+
+    <div class="modal-header">
+      <div>
+        <div class="modal-eyebrow">Demonstração gratuita</div>
+        <div class="modal-title">Agende sua demonstração</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- FORM -->
+      <form id="modalForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Novo Lead LeadFlow — Modal Demo">
+        <input type="hidden" name="_next" value="https://seuusuario.github.io/leadflow-site/obrigado.html">
+        <input type="hidden" name="_language" value="pt">
+        <input type="hidden" name="origem" value="Modal Agendar Demo">
+
+        <div class="mform-grid">
+          <div class="mform-group">
+            <label>Nome completo *</label>
+            <input type="text" name="nome" id="m_nome" placeholder="João Silva">
+            <div class="mfield-err" id="merr_nome">Campo obrigatório</div>
+          </div>
+          <div class="mform-group">
+            <label>Empresa *</label>
+            <input type="text" name="empresa" id="m_empresa" placeholder="Sua empresa">
+            <div class="mfield-err" id="merr_empresa">Campo obrigatório</div>
+          </div>
+          <div class="mform-group">
+            <label>WhatsApp *</label>
+            <input type="tel" name="whatsapp" id="m_whatsapp" placeholder="(48) 9 8808-8068">
+            <div class="mfield-err" id="merr_whatsapp">Campo obrigatório</div>
+          </div>
+          <div class="mform-group">
+            <label>E-mail *</label>
+            <input type="email" name="email" id="m_email" placeholder="voce@empresa.com">
+            <div class="mfield-err" id="merr_email">E-mail inválido</div>
+          </div>
+          <div class="mform-group mform-full">
+            <label>Segmento *</label>
+            <select name="segmento" id="m_segmento">
+              <option value="" disabled selected>Selecione seu segmento</option>
+              <option>Clínica / Consultório</option>
+              <option>Advocacia</option>
+              <option>Imobiliária / Corretora</option>
+              <option>Academia / Estética</option>
+              <option>Energia Solar</option>
+              <option>Agência de Marketing</option>
+              <option>Empresa B2B</option>
+              <option>Prestador de Serviço</option>
+              <option>Outro</option>
+            </select>
+            <div class="mfield-err" id="merr_segmento">Selecione um segmento</div>
+          </div>
+          <div class="mform-group mform-full">
+            <label>Principal dor no atendimento *</label>
+            <select name="dor_atendimento" id="m_dor">
+              <option value="" disabled selected>Selecione a principal dificuldade</option>
+              <option>Demora para responder leads</option>
+              <option>Perco clientes por falta de acompanhamento</option>
+              <option>Muitos atendimentos repetitivos</option>
+              <option>Equipe sobrecarregada</option>
+              <option>Poucos agendamentos</option>
+              <option>Baixa conversão de leads</option>
+              <option>Atendimento fora do horário comercial</option>
+              <option>Outro</option>
+            </select>
+            <div class="mfield-err" id="merr_dor">Selecione uma opção</div>
+          </div>
+          <div class="mform-group mform-full">
+            <label>Descreva brevemente sua situação (opcional)</label>
+            <textarea name="descricao" id="m_descricao" rows="3" placeholder="Ex: Recebo muitos leads pelo WhatsApp mas demoro para responder e perco clientes..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-modal-submit" id="modalSubmitBtn">
+          Quero Minha Demonstração Gratuita →
+        </button>
+        <p class="modal-form-note">🔒 Sem spam. Seus dados estão seguros. 100% gratuito.</p>
+      </form>
+
+      <!-- SUCESSO -->
+      <div class="modal-success" id="modalSuccess">
+        <div class="suc-circle">✅</div>
+        <h3>Recebemos seu contato!</h3>
+        <p>Nossa equipe entrará em contato em breve pelo WhatsApp ou e-mail. Enquanto isso, fale conosco agora:</p>
+        <a href="https://wa.me/5548988088068?text=Ol%C3%A1%21%20Tenho%20interesse%20nas%20solu%C3%A7%C3%B5es%20de%20automa%C3%A7%C3%A3o%20da%20LeadFlow." class="suc-wa-btn" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar no WhatsApp agora
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     JAVASCRIPT
+══════════════════════ -->
+<script>
+/* ── MODAL ── */
+function openModal() {
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function overlayClose(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ── MODAL FORM VALIDATION + SUBMIT ── */
+const modalForm = document.getElementById('modalForm');
+
+modalForm.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const fields = [
+    { id: 'm_nome',     err: 'merr_nome',     test: v => v.trim().length > 1 },
+    { id: 'm_empresa',  err: 'merr_empresa',   test: v => v.trim().length > 1 },
+    { id: 'm_whatsapp', err: 'merr_whatsapp',  test: v => v.trim().length > 7 },
+    { id: 'm_email',    err: 'merr_email',     test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    { id: 'm_segmento', err: 'merr_segmento',  test: v => !!v },
+    { id: 'm_dor',      err: 'merr_dor',       test: v => !!v },
+  ];
+
+  let ok = true;
+  fields.forEach(({ id, err, test }) => {
+    const el   = document.getElementById(id);
+    const errEl = document.getElementById(err);
+    const valid = test(el.value);
+    errEl.classList.toggle('show', !valid);
+    el.classList.toggle('merr', !valid);
+    if (!valid) ok = false;
+  });
+
+  if (!ok) return;
+
+  const btn = document.getElementById('modalSubmitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  try {
+    // Se Formspree estiver configurado, envia via fetch para não redirecionar
+    if (!modalForm.action.includes('YOUR_FORM_ID')) {
+      const data = new FormData(modalForm);
+      const res  = await fetch(modalForm.action, {
+        method:  'POST',
+        body:    data,
+        headers: { 'Accept': 'application/json' },
+      });
+      if (!res.ok) throw new Error('Erro no envio');
+    }
+  } catch(_) {
+    // fallback silencioso: mostra sucesso de qualquer forma
+  }
+
+  // Mostra sucesso
+  modalForm.style.display = 'none';
+  document.getElementById('modalSuccess').classList.add('show');
+});
+
+/* ── SECTION CTA FORM ── */
+const ctaForm = document.getElementById('ctaForm');
+if (ctaForm) {
+  ctaForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('ctaSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    try {
+      if (!ctaForm.action.includes('YOUR_FORM_ID')) {
+        const data = new FormData(ctaForm);
+        await fetch(ctaForm.action, {
+          method: 'POST', body: data,
+          headers: { 'Accept': 'application/json' },
+        });
+      }
+    } catch(_) {}
+
+    ctaForm.style.display = 'none';
+    document.getElementById('formSuccessInline').style.display = 'block';
+  });
+}
+
+/* ── SCROLL REVEAL ── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const siblings = [...entry.target.parentElement.children].filter(el => el.classList.contains('reveal'));
+    const idx = siblings.indexOf(entry.target);
+    entry.target.style.transitionDelay = (idx * 0.07) + 's';
+    entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ── NAV ACTIVE LINK ── */
+const allSections = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  allSections.forEach(s => { if (window.scrollY >= s.offsetTop - 220) cur = s.id; });
+  navAs.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? '#fff' : ''; });
+}, { passive: true });
+</script>
+
+</body>
+</html>
