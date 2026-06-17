@@ -172,15 +172,14 @@ h1 .hl { color:var(--blue-light) }
 .segment-name { font-size:.85rem; font-weight:600; color:var(--gray) }
 
 /* ════════════════════════════════
-   DEMO
+   DEMO — VIDEO PLAYER
 ════════════════════════════════ */
 #demo { padding:7rem 6%; background:linear-gradient(180deg,var(--bg) 0%,#0a1120 100%) }
-.demo-wrapper { max-width:900px; margin:0 auto; border-radius:20px; border:1px solid var(--border); overflow:hidden; background:#0a1120; box-shadow:0 40px 100px rgba(0,0,0,.5) }
+.demo-wrapper { max-width:900px; margin:0 auto; border-radius:20px; border:1px solid var(--border); overflow:hidden; background:#000; box-shadow:0 40px 100px rgba(0,0,0,.6) }
 .demo-bar { background:rgba(255,255,255,.04); padding:.85rem 1.25rem; display:flex; align-items:center; gap:.6rem; border-bottom:1px solid var(--border) }
 .demo-dot { width:12px; height:12px; border-radius:50% }
-.demo-area { min-height:380px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1.2rem; padding:3rem; color:var(--gray); text-align:center }
-.demo-play { width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--blue-light)); display:flex; align-items:center; justify-content:center; font-size:1.7rem; cursor:pointer; transition:transform .2s,box-shadow .2s; box-shadow:0 0 30px rgba(37,99,235,.4) }
-.demo-play:hover { transform:scale(1.08); box-shadow:0 0 50px rgba(37,99,235,.6) }
+.demo-video { width:100%; display:block; max-height:540px; background:#000; outline:none }
+.demo-video::-webkit-media-controls { background:rgba(0,0,0,.5) }
 
 /* ════════════════════════════════
    CTA / FORMULÁRIO
@@ -432,20 +431,26 @@ input.merr, select.merr, textarea.merr { border-color:#ef4444 }
   <div class="section-header reveal">
     <div class="section-eyebrow">Veja em ação</div>
     <h2 class="section-title">Veja a automação funcionando</h2>
-    <p class="section-sub">Em menos de 2 minutos você entende como a LeadFlow pode transformar seu atendimento.</p>
+    <p class="section-sub">Descubra como a LeadFlow transforma o atendimento da sua empresa com Inteligência Artificial — de ponta a ponta.</p>
   </div>
   <div class="demo-wrapper reveal">
     <div class="demo-bar">
       <div class="demo-dot" style="background:#ef4444"></div>
       <div class="demo-dot" style="background:#f59e0b"></div>
       <div class="demo-dot" style="background:#10b981"></div>
-      <span style="font-size:.75rem;color:var(--gray);margin-left:.5rem">LeadFlow — Demonstração ao vivo</span>
+      <span style="font-size:.75rem;color:var(--gray);margin-left:.5rem">LeadFlow — Automação Inteligente de Atendimento</span>
     </div>
-    <div class="demo-area">
-      <div class="demo-play" onclick="this.textContent='⏸'">▶</div>
-      <p style="font-size:.9rem">Clique para assistir à demonstração completa</p>
-      <p style="font-size:.78rem;opacity:.5">2 min · Sem cadastro necessário</p>
-    </div>
+    <video
+      class="demo-video"
+      src="demo.mp4"
+      controls
+      preload="metadata"
+      poster=""
+      playsinline
+      aria-label="Vídeo demonstrativo LeadFlow — Automação de Atendimento com IA">
+      Seu navegador não suporta vídeo HTML5.
+      <a href="demo.mp4" style="color:var(--blue-light)">Clique aqui para baixar o vídeo.</a>
+    </video>
   </div>
 </section>
 
